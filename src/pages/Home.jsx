@@ -209,7 +209,7 @@ export default function Home() {
             color: theme.palette.mode === "dark" ? "#00FF00" : "black",
           }}
         >
-          📌 Click menu icon for more (or) slide L &lt;= =&gt; R
+          <strong>📌 Click menu icon for more</strong> 
         </Typography>
       </Box> }
     </Box>
