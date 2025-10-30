@@ -29,60 +29,53 @@ export default function Home() {
       subtitle: "Internship • React • Node.js • SQL",
     },
   ];
-  
 
   return (
-<Box>
-  {/* Profile Section */}
-  <motion.div
-    initial={{ opacity: 0, y: -20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-  >
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "60vh",
-        textAlign: "center",
-      }}
-    >
-      <Box
-        sx={{
-          width: 200,
-          height: 200,
-          borderRadius: "50%",
-          border: `3px solid ${
-            theme.palette.mode === "dark" ? "#00FF00" : "black"
-          }`,
-          backgroundColor: "white",
-          clipPath: "circle(50%)", // 👈 force circular crop
-          overflow: "hidden", // 👈 ensures clean edge
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+    <Box>
+      {/* Profile Section */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
         <Box
-          component="img"
-          
-          src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761809949/aravindh_1_ah1nd5.jpg"
-          alt="profile" 
           sx={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover", // 👈 fills circle cleanly
-            backgroundColor: "white",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "60vh",
+            textAlign: "center",
           }}
-        />
-      </Box>
-    </Box>
-  </motion.div>
-</Box>
-
-
+        >
+          <Box
+            sx={{
+              width: 200,
+              height: 200,
+              borderRadius: "50%",
+              border: `3px solid ${
+                theme.palette.mode === "dark" ? "#00FF00" : "black"
+              }`,
+              backgroundColor: "white",
+              clipPath: "circle(50%)",
+              overflow: "hidden",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              component="img"
+              src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761809949/aravindh_1_ah1nd5.jpg"
+              alt="profile"
+              sx={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                backgroundColor: "white",
+              }}
+            />
+          </Box>
 
           <Typography variant="h4" mt={2}>
             Hi, I'm <strong>Aravindh R</strong> 👋
@@ -118,7 +111,7 @@ export default function Home() {
         container
         spacing={3}
         px={2}
-        pb={8} // give extra space so footer won't cover last row
+        pb={8}
         justifyContent="center"
         alignItems="stretch"
       >
@@ -208,9 +201,9 @@ export default function Home() {
       </Grid>
 
       {/* Bottom Note for Mobile */}
-      { <Box
+      <Box
         sx={{
-          display: { xs: "flex", md: "none" }, // only show on mobile
+          display: { xs: "flex", md: "none" },
           justifyContent: "center",
           alignItems: "center",
           py: 1.5,
@@ -230,9 +223,9 @@ export default function Home() {
             color: theme.palette.mode === "dark" ? "#00FF00" : "black",
           }}
         >
-          <strong>📌 Click menu icon for more</strong> 
+          📌 Click menu icon for more
         </Typography>
-      </Box> }
+      </Box>
     </Box>
   );
 }
