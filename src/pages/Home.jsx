@@ -66,7 +66,7 @@ export default function Home() {
           >
             <Box
               component="img"
-              src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761814014/WhatsApp_Image_2025-10-30_at_12.04.59_0a1fcc25_uhkxq6.jpg"
+              src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761814230/WhatsApp_Image_2025-10-30_at_12.04.59_0a1fcc25_fs3bpw.jpg"
               alt="profile"
               sx={{
                 width: "100%",
