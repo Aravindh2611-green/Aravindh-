@@ -31,38 +31,42 @@ export default function Home() {
   ];
 
   return (
-    <Box>
-      {/* Profile Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "60vh",
-            textAlign: "center",
-          }}
-        >
-          <Box
-            component="img"
-            src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761807082/WhatsApp_Image_2025-10-30_at_12.04.59_0a1fcc25_nmk1pn.jpg"
-            alt="profile"
-            sx={{
-              width: 200,
-              height: 200,
-              borderRadius: "50%",
-              objectFit: "contain",
-              backgroundColor: "white",
-              border: `3px solid ${
-                theme.palette.mode === "dark" ? "#00FF00" : "black"
-              }`,
-            }}
-          />
+  <Box>
+  {/* Profile Section */}
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+  >
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "60vh",
+        textAlign: "center",
+      }}
+    >
+      <Box
+        component="img"
+        src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761807082/WhatsApp_Image_2025-10-30_at_12.04.59_0a1fcc25_nmk1pn.jpg"
+        alt="profile"
+        sx={{
+          width: 200,
+          height: 200,
+          borderRadius: "50%",
+          objectFit: "cover", // 👈 this makes the image perfectly circular
+          border: `3px solid ${
+            theme.palette.mode === "dark" ? "#00FF00" : "black"
+          }`,
+          backgroundColor: "white",
+        }}
+      />
+    </Box>
+  </motion.div>
+</Box>
+
           <Typography variant="h4" mt={2}>
             Hi, I'm <strong>Aravindh R</strong> 👋
           </Typography>
