@@ -53,11 +53,12 @@ export default function Home() {
           width: 200,
           height: 200,
           borderRadius: "50%",
-          overflow: "hidden", // 👈 ensures image stays fully inside the circle
           border: `3px solid ${
             theme.palette.mode === "dark" ? "#00FF00" : "black"
           }`,
-          backgroundColor: "white", // 👈 sets full circular bg color
+          backgroundColor: "white",
+          clipPath: "circle(50%)", // 👈 force circular crop
+          overflow: "hidden", // 👈 ensures clean edge
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -70,13 +71,15 @@ export default function Home() {
           sx={{
             width: "100%",
             height: "100%",
-            objectFit: "cover", // 👈 fills circle without distortion
+            objectFit: "cover", // 👈 fills circle cleanly
+            backgroundColor: "white",
           }}
         />
       </Box>
     </Box>
   </motion.div>
 </Box>
+
 
 
           <Typography variant="h4" mt={2}>
