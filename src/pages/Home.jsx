@@ -31,7 +31,7 @@ export default function Home() {
   ];
 
   return (
-  <Box>
+<Box>
   {/* Profile Section */}
   <motion.div
     initial={{ opacity: 0, y: -20 }}
@@ -49,23 +49,35 @@ export default function Home() {
       }}
     >
       <Box
-        component="img"
-        src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761809949/aravindh_1_ah1nd5.jpg"
-        alt="profile"
         sx={{
           width: 200,
           height: 200,
           borderRadius: "50%",
-          objectFit: "cover", // 👈 this makes the image perfectly circular
+          overflow: "hidden", // 👈 ensures image stays fully inside the circle
           border: `3px solid ${
             theme.palette.mode === "dark" ? "#00FF00" : "black"
           }`,
-          backgroundColor: "white",
+          backgroundColor: "white", // 👈 sets full circular bg color
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
-      />
+      >
+        <Box
+          component="img"
+          src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761809949/aravindh_1_ah1nd5.jpg"
+          alt="profile"
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover", // 👈 fills circle without distortion
+          }}
+        />
+      </Box>
     </Box>
   </motion.div>
 </Box>
+
 
           <Typography variant="h4" mt={2}>
             Hi, I'm <strong>Aravindh R</strong> 👋
