@@ -69,7 +69,7 @@ export default function Home() {
           component="img"
           
           src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761809949/aravindh_1_ah1nd5.jpg"
-          alt="profile"
+          alt="profile" 
           sx={{
             width: "100%",
             height: "100%",
