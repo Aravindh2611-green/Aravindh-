@@ -29,6 +29,7 @@ export default function Home() {
       subtitle: "Internship • React • Node.js • SQL",
     },
   ];
+  
 
   return (
 <Box>
@@ -66,6 +67,7 @@ export default function Home() {
       >
         <Box
           component="img"
+          
           src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761809949/aravindh_1_ah1nd5.jpg"
           alt="profile"
           sx={{
