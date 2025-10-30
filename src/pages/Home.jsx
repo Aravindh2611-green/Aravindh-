@@ -50,7 +50,7 @@ export default function Home() {
         >
           <Box
             component="img"
-            src="https://res.cloudinary.com/dqhylblrx/image/upload/v1755517255/Aravindh_R_tfvmyi.jpg"
+            src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761807082/WhatsApp_Image_2025-10-30_at_12.04.59_0a1fcc25_nmk1pn.jpg"
             alt="profile"
             sx={{
               width: 200,
