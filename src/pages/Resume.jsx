@@ -48,7 +48,7 @@ const Resume = () => {
           <Box mt={3}>
             {/* If it's an image resume */}
             <img
-              src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1755774994/My_Resume_1__page-0001_1_o4hush.jpg"
+              src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1762160258/aravindh-resume_page-0001_b3rijt.jpg"
               alt="My Resume"
               style={{
                 width: "100%",
