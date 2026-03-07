@@ -48,7 +48,7 @@ const About = () => {
               <br /><br />
               Beyond my academic and technical work, I enjoy playing chess ♟️
               and drawing 🎨, which help me stay creative and strategic in problem-solving.
-              My passion lies in building impactful, user-friendly applications while exploring
+              My passion lies in building impactful, user-friendly websites while exploring
               innovative AI solutions.
             </Typography>
           </motion.div>
