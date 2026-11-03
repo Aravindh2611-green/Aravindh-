@@ -2,18 +2,16 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Container from "@mui/material/Container";
 
-export default function Layout({ children, toggleDarkMode, changeNavbarColor, mode, navbarColor }) {
+export default function Layout({ children, toggleDarkMode, mode }) {
   return (
-    <>
-      <Navbar toggleDarkMode={toggleDarkMode} changeNavbarColor={changeNavbarColor} mode={mode} navbarColor={navbarColor} />
-      <Container maxWidth="lg" sx={{ minHeight: "78vh", py: 4 }}>
+    <div className="app-shell" data-theme={mode}>
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <Navbar toggleDarkMode={toggleDarkMode} mode={mode} />
+      <main id="main-content" className="main-content">
         {children}
-      </Container>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
-
-

@@ -1,25 +1,15 @@
-// src/components/Footer.jsx
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <Box
-      component="footer"
-      sx={{
-        bgcolor: "black",         // ✅ Black background
-        color: "#39FF14",         // ✅ Radium green text
-        py: 2,
-        mt: 4,
-        textAlign: "center"
-      }}
-    >
-      <Typography>
-        © {new Date().getFullYear()} My Portfolio • Built with ❤️ and React
-      </Typography>
-      <Typography variant="caption">
-        Made with React, MUI, Formik & Framer Motion
-      </Typography>
-    </Box>
+    <footer className="site-footer">
+      <div className="footer-inner">
+        <p>© {new Date().getFullYear()} Aravindh R. · Built with React.</p>
+        <p>
+          <Link className="footer-link" to="/contact">Get in touch</Link>
+        </p>
+      </div>
+    </footer>
   );
 }

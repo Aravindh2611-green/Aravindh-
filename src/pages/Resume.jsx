@@ -1,76 +1,35 @@
-import React, { useState } from "react";
-import { Typography, Box, Button, useTheme } from "@mui/material";
-import { motion } from "framer-motion";
+import React from "react";
+import DownloadIcon from "@mui/icons-material/Download";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import resumePdf from "../assets/resume.pdf?url&no-inline";
 
-const Resume = () => {
-  const theme = useTheme();
-  const [showResume, setShowResume] = useState(false);
-
-  const handleToggleResume = () => {
-    setShowResume((prev) => !prev); // toggle open/close
-  };
-
+export default function Resume() {
   return (
-    <Box textAlign="center" py={5}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <Typography variant="h4" gutterBottom>
-          <strong>📄 MY RESUME</strong>
-        </Typography>
-        <Typography paragraph>
-          {showResume
-            ? "Here is my resume:"
-            : "Click the button below to view my resume."}
-        </Typography>
+    <section aria-labelledby="resume-title">
+      <header className="page-heading">
+        <p className="eyebrow">Resume</p>
+        <h1 className="page-title" id="resume-title">A concise overview of my experience.</h1>
+        <p className="page-description">
+          View the current resume below or download the PDF for later.
+        </p>
+      </header>
 
-        <Button
-          variant="contained"
-          onClick={handleToggleResume}
-          sx={{
-            backgroundColor: theme.palette.mode === "dark" ? "#39FF14" : "black",
-            color: theme.palette.mode === "dark" ? "black" : "#39FF14",
-            fontWeight: "bold",
-            textTransform: "none",
-            "&:hover": {
-              backgroundColor:
-                theme.palette.mode === "dark" ? "#32CD12" : "#333333",
-            },
-            mb: 2,
-          }}
-        >
-          {showResume ? "Close Resume" : "View Resume"}
-        </Button>
-
-        {showResume && (
-          <Box mt={3}>
-            {/* If it's an image resume */}
-            <img
-              src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1762160258/aravindh-resume_page-0001_b3rijt.jpg"
-              alt="My Resume"
-              style={{
-                width: "100%",
-                maxWidth: "800px",
-                borderRadius: "10px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-              }}
-            />
-
-            {/* If it's a PDF resume, swap img with iframe:
-            <iframe
-              src="https://res.cloudinary.com/your_resume.pdf"
-              width="100%"
-              height="600px"
-              style={{ border: "none", borderRadius: "10px" }}
-              title="My Resume"
-            /> */}
-          </Box>
-        )}
-      </motion.div>
-    </Box>
+      <div className="resume-actions">
+        <a className="action-link primary" href={resumePdf} download="Aravindh-R-Resume.pdf">
+          <DownloadIcon fontSize="small" /> Download PDF
+        </a>
+        <a className="action-link" href={resumePdf} target="_blank" rel="noopener noreferrer">
+          <OpenInNewIcon fontSize="small" /> Open PDF
+        </a>
+      </div>
+      <p className="resume-caption" style={{ textAlign: "center" }}>
+        If the embedded preview is unavailable in your browser, use Download PDF.
+      </p>
+      <iframe
+        className="resume-preview"
+        src={resumePdf}
+        title="Aravindh R. resume PDF preview"
+      />
+    </section>
   );
-};
-
-export default Resume;
+}

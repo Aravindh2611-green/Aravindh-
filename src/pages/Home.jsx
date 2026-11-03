@@ -1,230 +1,189 @@
 import React, { useState } from "react";
 import {
-  Box,
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
   Dialog,
   DialogContent,
-  useTheme,
+  DialogTitle,
+  IconButton,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import CloseIcon from "@mui/icons-material/Close";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import DownloadIcon from "@mui/icons-material/Download";
+import { Link } from "react-router-dom";
+
+const certificates = [
+  {
+    src: "https://res.cloudinary.com/dqhylblrx/image/upload/v1755519265/1754735122562_ARAVINDH_Internship_Certificate_page-0001_qgxm2z.jpg",
+    title: "Machine Learning",
+    subtitle: "Internship · Economic prediction",
+  },
+  {
+    src: "https://res.cloudinary.com/dqhylblrx/image/upload/v1755518757/WhatsApp_Image_2025-08-12_at_21.09.21_cff1eb2a_k0ifws.jpg",
+    title: "Full Stack Development",
+    subtitle: "Internship · Certificate",
+  },
+];
 
 export default function Home() {
-  const theme = useTheme();
-  const [openCard, setOpenCard] = useState(null);
-
-  const certificates = [
-    {
-      src: "https://res.cloudinary.com/dqhylblrx/image/upload/v1755519265/1754735122562_ARAVINDH_Internship_Certificate_page-0001_qgxm2z.jpg",
-      title: "MACHINE LEARNING",
-      subtitle: "Internship • Economic Prediction",
-    },
-    {
-      src: "https://res.cloudinary.com/dqhylblrx/image/upload/v1755518757/WhatsApp_Image_2025-08-12_at_21.09.21_cff1eb2a_k0ifws.jpg",
-      title: "FULLSTACK DEVELOPMENT",
-      subtitle: "Internship • React • Node.js • SQL",
-    },
-  ];
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [portraitFailed, setPortraitFailed] = useState(false);
 
   return (
-    <Box>
-      {/* Profile Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "60vh",
-            textAlign: "center",
-          }}
-        >
-          <Box
-            sx={{
-              width: 200,
-              height: 200,
-              borderRadius: "50%",
-              border: `3px solid ${
-                theme.palette.mode === "dark" ? "#00FF00" : "black"
-              }`,
-              backgroundColor: "white",
-              clipPath: "circle(50%)",
-              overflow: "hidden",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Box
-              component="img"
-              src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1761814230/WhatsApp_Image_2025-10-30_at_12.04.59_0a1fcc25_fs3bpw.jpg"
-              alt="profile"
-              sx={{
-                width: "100%",
-                height: "100%",
-                backgroundColor: "white",
-              }}
+    <>
+      <section className="hero" aria-labelledby="home-title">
+        <div className="hero-copy">
+          <p className="eyebrow">Computer Science Graduate</p>
+          <h1 className="hero-title" id="home-title">
+            Hi, I’m <span>Aravindh R</span>
+          </h1>
+          <p className="hero-role">
+            AI-assisted application development · Full-stack development
+          </p>
+          <p className="hero-intro">
+            I’m an early-career developer with internship experience in full-stack
+            development and AI. I enjoy learning new tools and using them to build
+            practical software projects.
+          </p>
+          <div className="hero-actions">
+            <Link className="action-link primary" to="/contact">
+              Get in touch <ArrowForwardIcon fontSize="small" />
+            </Link>
+            <Link className="action-link" to="/projects">
+              Explore projects
+            </Link>
+            <Link className="action-link" to="/resume">
+              <DownloadIcon fontSize="small" /> Resume
+            </Link>
+          </div>
+          <div className="social-links" aria-label="Social profiles">
+            <a
+              className="social-link"
+              href="https://www.linkedin.com/in/aravindh-r-205ab3353"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon fontSize="small" /> LinkedIn
+            </a>
+            <a
+              className="social-link"
+              href="https://github.com/Aravindh2611-green"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon fontSize="small" /> GitHub
+            </a>
+          </div>
+        </div>
+        <div className="hero-portrait-wrap">
+          {portraitFailed ? (
+            <div className="hero-portrait-fallback" role="img" aria-label="Aravindh R">
+              <span>AR</span>
+              <small>Computer Science Graduate</small>
+            </div>
+          ) : (
+            <img
+              className="hero-portrait"
+              src="https://res.cloudinary.com/dp5gwsru8/image/upload/v1793713653/profile_1_z69kld.jpg"
+              alt="Portrait of Aravindh R."
+              fetchPriority="high"
+              decoding="async"
+              onError={() => setPortraitFailed(true)}
             />
-          </Box>
+          )}
+        </div>
+      </section>
 
-          <Typography variant="h4" mt={2}>
-            Hi, I'm <strong>Aravindh R</strong> 👋
-          </Typography>
-          <Typography color="text.secondary" mt={1}>
-            Fullstack Developer • React Enthusiast
-          </Typography>
-          <Button
-            variant="contained"
-            href="https://www.linkedin.com/in/aravindh-r-205ab3353"
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              mt: 2,
-              backgroundColor:
-                theme.palette.mode === "dark" ? "#00FF00" : "black",
-              color: theme.palette.mode === "dark" ? "black" : "#00FF00",
-              fontWeight: "bold",
-              textTransform: "none",
-              "&:hover": {
-                backgroundColor:
-                  theme.palette.mode === "dark" ? "#00cc00" : "#333333",
-              },
-            }}
-          >
-            <strong>Visit my LinkedIn</strong>
-          </Button>
-        </Box>
-      </motion.div>
+      <section className="section-block" aria-labelledby="focus-title">
+        <div className="section-heading-row">
+          <div>
+            <p className="eyebrow">What I’m focused on</p>
+            <h2 className="section-title" id="focus-title">Learning by building</h2>
+          </div>
+          <Link className="text-link" to="/about">
+            More about me <ArrowForwardIcon fontSize="small" />
+          </Link>
+        </div>
+        <div className="card-grid">
+          <article className="surface-card">
+            <h3>Software development</h3>
+            <p>
+              Building a foundation in web development and applying it through
+              practical projects and internship experience.
+            </p>
+          </article>
+          <article className="surface-card">
+            <h3>AI-assisted workflows</h3>
+            <p>
+              Exploring AI tools, prompt design, and image and video generation
+              as practical parts of a development workflow.
+            </p>
+          </article>
+          <article className="surface-card">
+            <h3>Continuous learning</h3>
+            <p>
+              Strengthening my fundamentals while learning new technologies
+              through guided experience and hands-on work.
+            </p>
+          </article>
+        </div>
+      </section>
 
-      {/* Certificates Section */}
-      <Grid
-        container
-        spacing={3}
-        px={2}
-        pb={8}
-        justifyContent="center"
-        alignItems="stretch"
+      <section className="section-block" aria-labelledby="certificates-title">
+        <div className="section-heading-row">
+          <div>
+            <p className="eyebrow">Selected credentials</p>
+            <h2 className="section-title" id="certificates-title">Internship certificates</h2>
+          </div>
+        </div>
+        <div className="card-grid">
+          {certificates.map((certificate) => (
+            <button
+              className="certificate-card"
+              key={certificate.title}
+              type="button"
+              onClick={() => setSelectedCertificate(certificate)}
+              aria-label={`View ${certificate.title} certificate`}
+            >
+              <img src={certificate.src} alt="" loading="lazy" decoding="async" />
+              <span className="certificate-copy">
+                <strong>{certificate.title}</strong>
+                <span>{certificate.subtitle}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <Dialog
+        open={Boolean(selectedCertificate)}
+        onClose={() => setSelectedCertificate(null)}
+        fullWidth
+        maxWidth="md"
+        aria-labelledby="certificate-dialog-title"
       >
-        {certificates.map((cert, index) => (
-          <Grid item xs={12} md={5} key={index}>
-            <Card
-              onClick={() => setOpenCard(index)}
-              sx={{
-                cursor: "pointer",
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
-                borderRadius: "16px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                transition: "transform 0.2s ease",
-                "&:hover": { transform: "scale(1.02)" },
-              }}
-            >
-              <CardMedia
-                component="img"
-                image={cert.src}
-                alt={cert.title}
-                sx={{
-                  height: 250,
-                  objectFit: "cover",
-                  borderTopLeftRadius: "16px",
-                  borderTopRightRadius: "16px",
-                }}
-              />
-              <CardContent sx={{ flexGrow: 1, textAlign: "center" }}>
-                <Typography variant="h6" fontWeight="bold">
-                  {cert.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {cert.subtitle}
-                </Typography>
-              </CardContent>
-            </Card>
-
-            {/* Full Page Dialog */}
-            <Dialog
-              fullScreen
-              open={openCard === index}
-              onClose={() => setOpenCard(null)}
-            >
-              <DialogContent
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  p: 2,
-                }}
+        {selectedCertificate && (
+          <>
+            <DialogTitle id="certificate-dialog-title" sx={{ pr: 7 }}>
+              {selectedCertificate.title}
+              <IconButton
+                aria-label="Close certificate"
+                onClick={() => setSelectedCertificate(null)}
+                sx={{ position: "absolute", right: 12, top: 10 }}
               >
-                <img
-                  src={cert.src}
-                  alt={cert.title}
-                  style={{
-                    width: "100%",
-                    maxHeight: "90vh",
-                    objectFit: "contain",
-                    borderRadius: "8px",
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  onClick={() => setOpenCard(null)}
-                  sx={{
-                    mt: 2,
-                    backgroundColor:
-                      theme.palette.mode === "dark" ? "#00FF00" : "black",
-                    color: theme.palette.mode === "dark" ? "black" : "#00FF00",
-                    fontWeight: "bold",
-                    textTransform: "none",
-                    "&:hover": {
-                      backgroundColor:
-                        theme.palette.mode === "dark" ? "#00cc00" : "#333333",
-                    },
-                  }}
-                >
-                  Close
-                </Button>
-              </DialogContent>
-            </Dialog>
-          </Grid>
-        ))}
-      </Grid>
-
-      {/* Bottom Note for Mobile */}
-      <Box
-        sx={{
-          display: { xs: "flex", md: "none" },
-          justifyContent: "center",
-          alignItems: "center",
-          py: 1.5,
-          backgroundColor:
-            theme.palette.mode === "dark" ? "#111" : "#f5f5f5",
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          width: "100%",
-          boxShadow: "0 -2px 6px rgba(0,0,0,0.1)",
-        }}
-      >
-        <Typography
-          variant="body2"
-          sx={{
-            fontWeight: "bold",
-            color: theme.palette.mode === "dark" ? "#00FF00" : "black",
-          }}
-        >
-          📌 Click menu icon for more
-        </Typography>
-      </Box>
-    </Box>
+                <CloseIcon />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent>
+              <img
+                src={selectedCertificate.src}
+                alt={`${selectedCertificate.title} internship certificate`}
+                style={{ display: "block", width: "100%", height: "auto" }}
+              />
+            </DialogContent>
+          </>
+        )}
+      </Dialog>
+    </>
   );
 }

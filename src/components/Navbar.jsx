@@ -1,115 +1,72 @@
-// src/components/Navbar.jsx
 import React, { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Menu,
-  MenuItem,
-  Switch,
-  Divider,
-  Box,
-  Tooltip // ✅ Added Tooltip
-} from "@mui/material";
+import { NavLink } from "react-router-dom";
+import CloseIcon from "@mui/icons-material/Close";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import CodeIcon from "@mui/icons-material/Code";
-import DescriptionIcon from "@mui/icons-material/Description";
-import EmailIcon from "@mui/icons-material/Email";
-import { Link } from "react-router-dom";
 
-export default function Navbar({
-  toggleDarkMode,
-  mode
-}) {
-  const [anchorEl, setAnchorEl] = useState(null);
+const links = [
+  { label: "Home", to: "/", end: true },
+  { label: "About", to: "/about" },
+  { label: "Skills", to: "/skills" },
+  { label: "Experience", to: "/experience" },
+  { label: "Projects", to: "/projects" },
+  { label: "Resume", to: "/resume" },
+  { label: "Contact", to: "/contact" },
+];
 
-  const openMenu = (e) => setAnchorEl(e.currentTarget);
-  const closeMenu = () => setAnchorEl(null);
+export default function Navbar({ toggleDarkMode, mode }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const nextMode = mode === "dark" ? "light" : "dark";
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "black" }}>
-      <Toolbar>
-        <Typography
-          variant="h6"
-          component={Link}
-          to="/"
-          sx={{ color: "#39FF14", textDecoration: "none", flexGrow: 1 }}
+    <header className="site-header">
+      <div className="header-inner">
+        <NavLink className="brand" to="/" onClick={closeMenu}>
+          <span className="brand-mark" aria-hidden="true">AR</span>
+          <span>Aravindh R</span>
+        </NavLink>
+
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
         >
-          <strong>Welcome To My Portfolio ✨</strong>
-        </Typography>
+          {menuOpen ? <CloseIcon /> : <MenuIcon />}
+        </button>
 
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1, mr: 2 }}>
-          <Tooltip title="Home">
-            <IconButton component={Link} to="/" sx={{ color: "#39FF14" }}>
-              <HomeIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="About">
-            <IconButton component={Link} to="/about" sx={{ color: "#39FF14" }}>
-              <InfoIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="Skills">
-            <IconButton component={Link} to="/skills" sx={{ color: "#39FF14" }}>
-              <CodeIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="Resume">
-            <IconButton component={Link} to="/resume" sx={{ color: "#39FF14" }}>
-              <DescriptionIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="Contact">
-            <IconButton component={Link} to="/contact" sx={{ color: "#39FF14" }}>
-              <EmailIcon />
-            </IconButton>
-          </Tooltip>
-        </Box>
-
-        <IconButton color="inherit" onClick={openMenu}>
-          <MenuIcon />
-        </IconButton>
-
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={closeMenu}
-          keepMounted
+        <nav
+          id="primary-navigation"
+          className={`nav-links${menuOpen ? " is-open" : ""}`}
+          aria-label="Primary navigation"
         >
-          <MenuItem component={Link} to="/" onClick={closeMenu}>
-            Home
-          </MenuItem>
-          <MenuItem component={Link} to="/about" onClick={closeMenu}>
-            About
-          </MenuItem>
-          <MenuItem component={Link} to="/skills" onClick={closeMenu}>
-            Skills
-          </MenuItem>
-          <MenuItem component={Link} to="/resume" onClick={closeMenu}>
-            Resume
-          </MenuItem>
-          <MenuItem component={Link} to="/contact" onClick={closeMenu}>
-            Contact
-          </MenuItem>
-
-          <Divider />
-
-          <MenuItem>
-            Dark Mode
-            <Switch
-              checked={mode === "dark"}
-              onChange={() => {
-                toggleDarkMode();
-              }}
-            />
-          </MenuItem>
-        </Menu>
-      </Toolbar>
-    </AppBar>
+          {links.map(({ label, to, end }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={end}
+              onClick={closeMenu}
+              className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
+            >
+              {label}
+            </NavLink>
+          ))}
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={toggleDarkMode}
+            aria-label={`Switch to ${nextMode} mode`}
+          >
+            {mode === "dark" ? <LightModeIcon fontSize="small" /> : <DarkModeIcon fontSize="small" />}
+            <span>Use {nextMode} mode</span>
+          </button>
+        </nav>
+      </div>
+    </header>
   );
 }
-
-
