@@ -20,9 +20,11 @@ const experiences = [
   {
     role: "Full Stack Development Intern",
     company: "Samudhra Tech Solutions",
-    date: "February 2026 – April 2026",
+    date: "16 February 2026 – 18 April 2026",
     description:
-      "Completed a three-month internship in full-stack development. Specific project and technology details are not available in this portfolio workspace.",
+      "Completed an internship in full-stack development.",
+    certificateUrl:
+      "/certificates/Samudhra-Full-Stack-Internship-Certificate.pdf",
   },
 ];
 
@@ -55,6 +57,16 @@ export default function Experience() {
               <span className="experience-date">{experience.date}</span>
             </div>
             <p className="experience-description">{experience.description}</p>
+            {experience.certificateUrl && (
+              <a
+                className="text-link"
+                href={experience.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Certificate
+              </a>
+            )}
           </article>
         ))}
       </div>

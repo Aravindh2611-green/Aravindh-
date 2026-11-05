@@ -464,6 +464,18 @@
   object-fit: cover;
 }
 
+.certificate-pdf-card {
+  cursor: default;
+}
+
+.certificate-pdf-preview {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 0;
+  background: var(--surface-raised);
+}
+
 .certificate-copy {
   padding: 16px 18px 18px;
 }
@@ -477,6 +489,10 @@
   margin-top: 5px;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.certificate-copy .text-link {
+  margin-top: 12px;
 }
 
 .text-link {

@@ -23,6 +23,11 @@ const certificates = [
     title: "Full Stack Development",
     subtitle: "Internship · Certificate",
   },
+  {
+    pdfUrl: "/certificates/Samudhra-Full-Stack-Internship-Certificate.pdf",
+    title: "Samudhra Tech Solutions",
+    subtitle: "Full Stack Development · Internship",
+  },
 ];
 
 export default function Home() {
@@ -138,19 +143,42 @@ export default function Home() {
         </div>
         <div className="card-grid">
           {certificates.map((certificate) => (
-            <button
-              className="certificate-card"
-              key={certificate.title}
-              type="button"
-              onClick={() => setSelectedCertificate(certificate)}
-              aria-label={`View ${certificate.title} certificate`}
-            >
-              <img src={certificate.src} alt="" loading="lazy" decoding="async" />
-              <span className="certificate-copy">
-                <strong>{certificate.title}</strong>
-                <span>{certificate.subtitle}</span>
-              </span>
-            </button>
+            certificate.pdfUrl ? (
+              <article className="certificate-card certificate-pdf-card" key={certificate.title}>
+                <iframe
+                  className="certificate-pdf-preview"
+                  src={`${certificate.pdfUrl}#toolbar=0&navpanes=0`}
+                  title={`${certificate.title} certificate preview`}
+                  loading="lazy"
+                />
+                <div className="certificate-copy">
+                  <strong>{certificate.title}</strong>
+                  <span>{certificate.subtitle}</span>
+                  <a
+                    className="text-link"
+                    href={certificate.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Certificate
+                  </a>
+                </div>
+              </article>
+            ) : (
+              <button
+                className="certificate-card"
+                key={certificate.title}
+                type="button"
+                onClick={() => setSelectedCertificate(certificate)}
+                aria-label={`View ${certificate.title} certificate`}
+              >
+                <img src={certificate.src} alt="" loading="lazy" decoding="async" />
+                <span className="certificate-copy">
+                  <strong>{certificate.title}</strong>
+                  <span>{certificate.subtitle}</span>
+                </span>
+              </button>
+            )
           ))}
         </div>
       </section>
