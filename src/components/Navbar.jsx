@@ -11,6 +11,7 @@ const links = [
   { label: "Skills", to: "/skills" },
   { label: "Experience", to: "/experience" },
   { label: "Projects", to: "/projects" },
+  { label: "AI Studio", to: "/ai-creative-studio" },
   { label: "Resume", to: "/resume" },
   { label: "Contact", to: "/contact" },
 ];

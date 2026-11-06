@@ -20,3 +20,7 @@ The form's Subject is included at the start of the submitted message body becaus
 ## Resume and projects
 
 The downloadable resume is `src/assets/resume.pdf`. Projects that are not publicly deployed are identified as local/showcase work; the Fee Management System's source and technology stack were not included in this repository and are not claimed as verified.
+
+## AI Creative Studio
+
+The portfolio's AI Creative Studio showcases three vertical storytelling videos stored in `public/videos/`, with custom-generated poster images designed to match the supplied videos. Use the AI Studio link in the navigation to view the projects and open the responsive video player.

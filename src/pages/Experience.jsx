@@ -15,7 +15,7 @@ const experiences = [
     company: "Private Organization",
     date: "August 2025 – October 2025",
     description:
-      "Completed an AI internship. Additional organization and project details are not included here.",
+      "Gained practical exposure to AI image generation, AI video generation, AI-assisted web development, and creative AI tools and workflows through learning and hands-on exploration.",
   },
   {
     role: "Full Stack Development Intern",

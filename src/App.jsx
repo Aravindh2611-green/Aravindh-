@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
+import AICreativeStudio from "./pages/AICreativeStudio";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 
@@ -30,6 +31,7 @@ const pageMetadata = {
   "/skills": ["Skills", "A truthful overview of Aravindh R.'s programming fundamentals, AI exposure, and professional strengths."],
   "/experience": ["Experience", "Internship experience in full-stack development and artificial intelligence."],
   "/projects": ["Projects", "Selected software and AI projects, with local work and unverified details clearly identified."],
+  "/ai-creative-studio": ["AI Creative Studio", "AI-generated visuals and storytelling videos created through creative AI workflows."],
   "/resume": ["Resume", "View or download Aravindh R.'s resume."],
   "/contact": ["Contact", "Contact Aravindh R. by email or send a message through the portfolio contact form."],
 };
@@ -65,6 +67,7 @@ export default function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/ai-creative-studio" element={<AICreativeStudio />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
