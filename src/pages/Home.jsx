@@ -38,27 +38,32 @@ export default function Home() {
     <>
       <section className="hero" aria-labelledby="home-title">
         <div className="hero-copy">
-          <p className="eyebrow">Computer Science Graduate</p>
+          <p className="eyebrow">AI • TECHNOLOGY • CREATIVITY</p>
           <h1 className="hero-title" id="home-title">
-            Hi, I’m <span>Aravindh R</span>
+            <span>ARAVINDH R</span>
           </h1>
           <p className="hero-role">
-            AI-assisted application development · Full-stack development
+            AI-Assisted Web Developer | Computer Science Graduate
           </p>
           <p className="hero-intro">
-            I’m an early-career developer with internship experience in full-stack
-            development and AI. I enjoy learning new tools and using them to build
-            practical software projects.
+            Building digital experiences with creativity, technology and AI.
           </p>
           <div className="hero-actions">
-            <Link className="action-link primary" to="/contact">
-              Get in touch <ArrowForwardIcon fontSize="small" />
-            </Link>
-            <Link className="action-link" to="/projects">
-              Explore projects
+            <Link className="action-link primary" to="/projects">
+              View My Work
             </Link>
             <Link className="action-link" to="/resume">
-              <DownloadIcon fontSize="small" /> Resume
+              View Resume
+            </Link>
+            <a
+              className="action-link"
+              href="/resume/Aravindh-R-Resume.pdf"
+              download="Aravindh-R-Resume.pdf"
+            >
+              <DownloadIcon fontSize="small" /> Download Resume
+            </a>
+            <Link className="action-link" to="/contact">
+              Contact Me
             </Link>
           </div>
           <div className="social-links" aria-label="Social profiles">

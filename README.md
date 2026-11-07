@@ -19,7 +19,7 @@ The form's Subject is included at the start of the submitted message body becaus
 
 ## Resume and projects
 
-The downloadable resume is `src/assets/resume.pdf`. Projects that are not publicly deployed are identified as local/showcase work; the Fee Management System's source and technology stack were not included in this repository and are not claimed as verified.
+The resume is served from `public/resume/Aravindh-R-Resume.pdf`. Projects that are not publicly deployed are identified as local/showcase work; the Fee Management System's source and technology stack were not included in this repository and are not claimed as verified.
 
 ## AI Creative Studio
 

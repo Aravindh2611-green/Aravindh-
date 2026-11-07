@@ -3,14 +3,14 @@ import { createTheme } from "@mui/material/styles";
 
 const getTheme = (mode = "dark") => {
   const isDark = mode === "dark";
-  const text = isDark ? "#f2f6f3" : "#17231b";
+  const text = isDark ? "#f2f6f3" : "#1f2933";
 
   return createTheme({
     palette: {
       mode,
-      primary: { main: isDark ? "#8bd3a2" : "#287c48" },
+      primary: { main: isDark ? "#8bd3a2" : "#176b48" },
       background: {
-        default: isDark ? "#0c110f" : "#f5f8f5",
+        default: isDark ? "#0c110f" : "#f7f9f6",
         paper: isDark ? "#121916" : "#ffffff",
       },
       text: {

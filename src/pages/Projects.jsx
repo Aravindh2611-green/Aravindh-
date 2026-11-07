@@ -32,13 +32,34 @@ const projects = [
   },
   {
     id: "portfolio",
-    title: "Personal Portfolio",
+    title: "Personal Portfolio Website",
     description:
       "This portfolio presents my background, internship experience, skills, and selected projects.",
     status: "Website",
     stack: "React · Vite · Material UI",
     details:
       "A React and Vite portfolio using Material UI and React Router. The source code for this website is available in the current repository.",
+  },
+  {
+    id: "billing-software",
+    title: "Billing Software",
+    description:
+      "A billing software project. Further feature and technology details are not documented in this portfolio workspace.",
+    status: "Project Showcase",
+    stack: "Technology details not documented",
+    details:
+      "This project is identified as Billing Software. Its source code, implementation details, and deployment status are not available in this portfolio workspace.",
+  },
+  {
+    id: "ai-creative-studio",
+    title: "AI Creative Studio",
+    description:
+      "A collection of AI-assisted visual storytelling videos, presented with their original posters and video player.",
+    status: "Creative showcase",
+    stack: "AI-assisted creative workflows",
+    details:
+      "Explore the existing visual projects, posters, and video player in the AI Creative Studio.",
+    linkTo: "/ai-creative-studio",
   },
 ];
 
@@ -72,16 +93,21 @@ export default function Projects() {
               <span className="project-status">{project.status}</span>
               <span className="project-stack">{project.stack}</span>
             </div>
-            <button
-              className="text-link"
-              type="button"
-              onClick={() => setActiveProject(project)}
-              aria-haspopup="dialog"
-              aria-label={`View details for ${project.title}`}
-              style={{ alignSelf: "flex-start", marginTop: 16, border: 0, background: "none", padding: 0, font: "inherit", cursor: "pointer" }}
-            >
-              View project details <ArrowOutwardIcon fontSize="small" />
-            </button>
+            {project.linkTo ? (
+              <Link className="text-link project-action" to={project.linkTo}>
+                Explore AI Creative Studio <ArrowOutwardIcon fontSize="small" />
+              </Link>
+            ) : (
+              <button
+                className="text-link project-action"
+                type="button"
+                onClick={() => setActiveProject(project)}
+                aria-haspopup="dialog"
+                aria-label={`View details for ${project.title}`}
+              >
+                View project details <ArrowOutwardIcon fontSize="small" />
+              </button>
+            )}
           </article>
         ))}
       </div>
